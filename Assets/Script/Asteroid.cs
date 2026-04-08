@@ -38,7 +38,8 @@ public class Asteroid : MonoBehaviour
         rb2d.angularVelocity = Random.Range(-200f, 200f);
         
         //health theo size
-        currentHealth = maxHealth + Mathf.RoundToInt(scale * 10);
+        int levelIndex = Mathf.Clamp(GameManager.instance.currentLevel - 1, 0, GameConfig.Asteroid.healthBonus.Length - 1);
+        currentHealth = maxHealth + Mathf.RoundToInt(scale * 10) + GameConfig.Asteroid.healthBonus[levelIndex]; // tăng theo level để khó dần
         
         //destroy
         Destroy(gameObject, 7f);
@@ -69,8 +70,6 @@ public class Asteroid : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
-
-        Debug.Log("Asteroid HP: " + currentHealth);
 
         if (currentHealth <= 0)
         {

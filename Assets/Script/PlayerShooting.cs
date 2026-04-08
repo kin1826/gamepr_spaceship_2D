@@ -5,8 +5,14 @@ public class PlayerShooting : MonoBehaviour
     public GameObject bulletPrefab;
     public Transform firePointLeft;
     public Transform firePointRight;
-    public float bulletSpeed = GameConfig.Bullet.speed[0];
+    public float bulletSpeed;
 
+    void Awake()
+    {
+        int levelIndex = Mathf.Clamp(GameManager.instance.currentLevel - 1, 0, GameConfig.Bullet.speed.Length - 1);
+        bulletSpeed = GameConfig.Bullet.speed[levelIndex];
+    }
+    
     void Update()
     {
         if (Input.GetMouseButtonDown(0))

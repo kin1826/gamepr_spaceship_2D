@@ -8,6 +8,7 @@ public class GameData
     public static int level;
 
     public static ShipData shipData;
+    public static LevelData levelData;
 
     static string path = Application.persistentDataPath + "/save.json";
 

@@ -371,6 +371,7 @@ MonoBehaviour:
   shipData: {fileID: 0}
   scoreText: {fileID: 852184023}
   scoreGameOverText: {fileID: 674072263}
+  scoreWinText: {fileID: 2042301282}
   currentProcess: 0
   maxProcess: 40
   slider: {fileID: 1303300022}

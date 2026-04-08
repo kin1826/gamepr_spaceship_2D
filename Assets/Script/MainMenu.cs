@@ -6,10 +6,16 @@ using DG.Tweening;
 
 public class MainMenu : MonoBehaviour
 {
+    public static MainMenu instance;
+
+    public LevelData currentLevel;
+
     public GameObject guidePanel;
     public CanvasGroup guidePanelCanvas;
     public GameObject selectShipPanel;
     public CanvasGroup selectShipPanelCanvas;
+    public GameObject selectLevelPanel;
+    public CanvasGroup selectLevelPanelCanvas;
     
     public TextMeshProUGUI highScoreText;
     
@@ -18,6 +24,11 @@ public class MainMenu : MonoBehaviour
     public int highScore = 0;
 
     // public GameData data;
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     void Start()
     {
@@ -28,7 +39,9 @@ public class MainMenu : MonoBehaviour
 
     public void PlayGame()
     {
-        SceneManager.LoadScene("GameScene"); // tên scene game
+        selectLevelPanel.SetActive(true);
+        AnimPanel(selectLevelPanel, selectLevelPanelCanvas);
+        // SceneManager.LoadScene("GameScene"); // tên scene game
     }
 
     public void QuitGame()
@@ -90,6 +103,17 @@ public class MainMenu : MonoBehaviour
         SelectShip();
     }
 
+    public void LoadLevel(LevelData level)
+    {
+        currentLevel = level;
+
+        Debug.Log("Load level: " + level.levelIndex);
+
+        // setup game theo level
+        // SetUpSlider();
+        // đổi background
+    }
+
     public void SelectShip()
     {
         ShipData ship = GameData.shipData;
@@ -98,5 +122,18 @@ public class MainMenu : MonoBehaviour
             ship.levelSprites.Length - 1
         ];
 
+    }
+    public void CloseSelectLevel()
+    {
+        selectLevelPanel.SetActive(false);
+    }
+    public void SelectLevel(LevelData level)
+    {
+        currentLevel = level;
+
+        // lưu lại để scene sau dùng
+        GameData.levelData = level;
+
+        SceneManager.LoadScene("GameScene");
     }
 }
