@@ -2,9 +2,16 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public int damage = GameConfig.Bullet.damage[0];
+    public int damage;
     
     public GameObject hitEffectPrefab;
+    
+    void Awake()
+    {
+        int levelIndex = Mathf.Clamp(GameManager.instance.currentLevel - 1, 0, GameConfig.Bullet.damage.Length - 1);
+        damage = GameConfig.Bullet.damage[levelIndex];
+        Debug.Log("Current Bullet Damage: " + damage);
+    }
     
     void OnTriggerEnter2D(Collider2D collision)
     {

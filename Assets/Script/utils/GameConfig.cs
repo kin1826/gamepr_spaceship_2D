@@ -34,4 +34,9 @@ public static class GameConfig
         public static float blinkTime = 0.5f;
     }
     
+    public static class Asteroid
+    {
+        public static int[] healthBonus = { 0, 3, 6, 9, 12 };
+    }
+    
 }

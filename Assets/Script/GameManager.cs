@@ -23,14 +23,16 @@ public class GameManager : MonoBehaviour
     //Save
     public int currentLevel = 1;
     public ShipData shipData;
+    public LevelData levelData;
     
     
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI scoreGameOverText;
+    public TextMeshProUGUI scoreWinText;
     
     //Process
     public int currentProcess = 0;
-    public int maxProcess = GameConfig.Process.maxProcess;
+    public int maxProcess;
     public Slider slider;
     [SerializeField] private GameObject markerPrefab;
     [SerializeField] private RectTransform markerParent;
@@ -57,10 +59,13 @@ public class GameManager : MonoBehaviour
         AudioManager.instance.PlayMusic(AudioManager.instance.gameMusic);
         UpdateUI();
         shipData = GameData.shipData;
+        levelData = GameData.levelData;
 
         Debug.Log(markerPrefab);
         Debug.Log(markerParent);
         Debug.Log(shipData);
+
+        maxProcess = levelData.maxProcess;
 
         SetUpSlider(maxProcess);
         
@@ -75,13 +80,15 @@ public class GameManager : MonoBehaviour
     
     public void SetUpSlider(int maxProcessSlider)
     {
+        maxProcess = levelData.maxProcess;
+
         // clear marker cũ
         foreach (Transform child in markerParent)
         {
             Destroy(child.gameObject);
         }
 
-        foreach (float threshold in shipData.thresholds)
+        foreach (float threshold in levelData.thresholds)
         {
             float percent = threshold / maxProcessSlider;
 
@@ -216,7 +223,7 @@ public class GameManager : MonoBehaviour
     public void AddProcess(int amount)
     {
         currentProcess += amount;
-        playerVisual.UpdateSprite(currentProcess);
+        playerVisual.UpdateSprite(currentProcess, levelData.thresholds, shipData.levelSprites);
         Debug.Log(currentProcess + " -- " + maxProcess);
 
         if (currentProcess >= maxProcess)
@@ -302,6 +309,15 @@ public class GameManager : MonoBehaviour
 
 
         SaveGame();
+
+        if (isHighest)
+        {
+            scoreWinText.text = "New Highest Score: " + score;
+        }
+        else
+        {
+            scoreWinText.text = "Score: " + score;
+        }
     }
 
     private System.Collections.IEnumerator ShowWinPanelAfterDelay()
