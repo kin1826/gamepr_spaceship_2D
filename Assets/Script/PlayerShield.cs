@@ -25,7 +25,12 @@ public class PlayerShield : MonoBehaviour
 
     public void ActivateShield()
     {
-        StopAllCoroutines();
+        if (isActive)
+        {
+            StopAllCoroutines();
+            shieldObject.SetActive(false);
+            isActive = false;
+        }
         StartCoroutine(ShieldRoutine());
     }
 

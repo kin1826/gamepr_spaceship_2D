@@ -369,6 +369,7 @@ MonoBehaviour:
   isHighest: 0
   currentLevel: 1
   shipData: {fileID: 0}
+  levelData: {fileID: 0}
   scoreText: {fileID: 852184023}
   scoreGameOverText: {fileID: 674072263}
   scoreWinText: {fileID: 2042301282}
@@ -4247,7 +4248,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 111610522}
         m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: RestartGame
+        m_MethodName: NextLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
