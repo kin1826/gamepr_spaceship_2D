@@ -9,6 +9,7 @@ public class MainMenu : MonoBehaviour
     public static MainMenu instance;
 
     public LevelData currentLevel;
+    public LevelData[] allLevels;
 
     public GameObject guidePanel;
     public CanvasGroup guidePanelCanvas;
@@ -28,6 +29,9 @@ public class MainMenu : MonoBehaviour
     private void Awake()
     {
         instance = this;
+
+        allLevels = Resources.LoadAll<LevelData>("Levels");
+        System.Array.Sort(allLevels, (a, b) => a.levelIndex.CompareTo(b.levelIndex));
     }
 
     void Start()
@@ -133,7 +137,32 @@ public class MainMenu : MonoBehaviour
 
         // lưu lại để scene sau dùng
         GameData.levelData = level;
+        GameData.level = level.levelIndex;
+        GameData.Save();
 
         SceneManager.LoadScene("GameScene");
+    }
+
+    public void GoToNextLevel()
+    {
+        if (currentLevel == null)
+        {
+            Debug.LogError("currentLevel NULL");
+            return;
+        }
+
+        int currentIndex = currentLevel.levelIndex - 1;
+        int nextIndex = currentIndex + 1;
+
+        if (nextIndex < allLevels.Length)
+        {
+            LevelData nextLevel = allLevels[nextIndex];
+            SelectLevel(nextLevel);
+        }
+        else
+        {
+            Debug.Log("Hết level, quay về menu");
+            SceneManager.LoadScene("MainMenu");
+        }
     }
 }

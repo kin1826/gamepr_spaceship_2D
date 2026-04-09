@@ -60,6 +60,7 @@ public class GameManager : MonoBehaviour
         UpdateUI();
         shipData = GameData.shipData;
         levelData = GameData.levelData;
+        currentLevel = GameData.level;
 
         Debug.Log(markerPrefab);
         Debug.Log(markerParent);
@@ -318,6 +319,12 @@ public class GameManager : MonoBehaviour
         {
             scoreWinText.text = "Score: " + score;
         }
+    }
+    public void NextLevel()
+    {
+        Time.timeScale = 1f;
+        Debug.Log("Next Level");
+        MainMenu.instance.GoToNextLevel();
     }
 
     private System.Collections.IEnumerator ShowWinPanelAfterDelay()
