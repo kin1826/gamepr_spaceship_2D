@@ -137,8 +137,8 @@ public class MainMenu : MonoBehaviour
 
         // lưu lại để scene sau dùng
         GameData.levelData = level;
-        GameData.level = level.levelIndex;
-        GameData.Save();
+        // GameData.level = level.levelIndex; // remove để tránh cheat
+        // GameData.Save(); // remove
 
         SceneManager.LoadScene("GameScene");
     }
