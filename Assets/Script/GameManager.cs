@@ -60,7 +60,7 @@ public class GameManager : MonoBehaviour
         UpdateUI();
         shipData = GameData.shipData;
         levelData = GameData.levelData;
-        currentLevel = GameData.level;
+        currentLevel = levelData.levelIndex; // sửa: level hiện tại đang chơi
 
         Debug.Log(markerPrefab);
         Debug.Log(markerParent);
@@ -215,7 +215,6 @@ public class GameManager : MonoBehaviour
         
         GameData.currentScore = score;
         // GameData.shipData = currentSkin;
-        GameData.level = currentLevel;
         
         Debug.Log($"💾 SaveGame gọi với Score: {score}, HighScore: {GameData.highScore}");
         GameData.Save();
@@ -308,7 +307,7 @@ public class GameManager : MonoBehaviour
         gameWinPanel.SetActive(true);
         instance.AnimPanel(gameWinPanel, winPanelCanvas);
 
-
+        GameData.sceneLevel = currentLevel + 1; // lưu level cao nhất đã pass
         SaveGame();
 
         if (isHighest)

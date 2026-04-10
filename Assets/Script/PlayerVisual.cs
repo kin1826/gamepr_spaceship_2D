@@ -45,8 +45,6 @@ public class PlayerVisual : MonoBehaviour
 
         sr.sprite = sprites[index];
 
-        // Cập nhật level hiện tại
-        // GameManager.instance.currentLevel = index + 1;
         SetSprite(index);
     }
 
@@ -60,7 +58,5 @@ public class PlayerVisual : MonoBehaviour
         sr.sprite = ship.levelSprites[index];
         if (index != 0)
             shield.ActivateShield();
-
-        GameManager.instance.currentLevel = index + 1; // Cập nhật level hiện tại dựa trên index của sprite (index 0 = level 1, index 1 = level 2, ...)
     }
 }
