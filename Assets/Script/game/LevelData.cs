@@ -4,7 +4,7 @@ using UnityEngine;
 public class LevelData : ScriptableObject
 {
     public int levelIndex;
-    public bool isSuccess;
+    public bool isBossLevel;
 
     public int maxProcess;
     public int[] thresholds;
