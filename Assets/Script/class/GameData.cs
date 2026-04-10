@@ -5,7 +5,6 @@ public class GameData
 {
     public static int highScore;
     public static int currentScore;
-    public static int level = 1;
     public static int sceneLevel = 1; // level đang chơi (để load đúng level map)
 
     public static ShipData shipData;
@@ -44,7 +43,7 @@ public class GameData
         else
         {
             Debug.LogWarning($"File save không tồn tại: {path}");
-            level = 1; // default level
+            sceneLevel = 1; // default level
         }
 
         // 👉 fallback nếu null
