@@ -941,7 +941,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   content: {fileID: 1090954671}
-  levelItemPrefab: {fileID: 5090122779545877429, guid: 5555f0b599410eb47bfa9763b02d6908, type: 3}
+  levelItemPrefab: {fileID: 7769039932348683123, guid: 3792fd6e030a7b64886cc6d8fab51038, type: 3}
 --- !u!1 &407206216
 GameObject:
   m_ObjectHideFlags: 0
@@ -4887,6 +4887,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentLevel: {fileID: 0}
+  allLevels: []
   guidePanel: {fileID: 1014853542}
   guidePanelCanvas: {fileID: 1014853546}
   selectShipPanel: {fileID: 1681212550}
