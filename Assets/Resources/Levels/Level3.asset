@@ -16,4 +16,4 @@ MonoBehaviour:
   isBossLevel: 0
   maxProcess: 30
   thresholds: 04000000080000000e0000001400000019000000
-  background: {fileID: -7443756053782179069, guid: 7ccebee5ad3a6d640a774ac0dc79fffd, type: 3}
+  background: {fileID: 135100562492788919, guid: a69b33a2bfe6906478e8670fff3544b6, type: 3}

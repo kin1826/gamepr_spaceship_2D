@@ -365,6 +365,9 @@ MonoBehaviour:
   gamePausePanelCanvas: {fileID: 188890365}
   gameWinPanel: {fileID: 274788106}
   winPanelCanvas: {fileID: 274788108}
+  backgroundImage: {fileID: 787015138}
+  backgroundImage2: {fileID: 1500660268}
+  backgroundScrollSpeed: 2
   score: 0
   isHighest: 0
   currentLevel: 1
@@ -2537,7 +2540,6 @@ GameObject:
   m_Component:
   - component: {fileID: 787015139}
   - component: {fileID: 787015138}
-  - component: {fileID: 787015140}
   m_Layer: 0
   m_Name: Backgound1
   m_TagString: Untagged
@@ -2615,20 +2617,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &787015140
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 787015137}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4935575a1e4532c4ba79db42b8c44df6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 1
-  width: 20
 --- !u!1 &852184022
 GameObject:
   m_ObjectHideFlags: 0
@@ -5295,7 +5283,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1500660269}
   - component: {fileID: 1500660268}
-  - component: {fileID: 1500660267}
   m_Layer: 0
   m_Name: Backgound2
   m_TagString: Untagged
@@ -5303,20 +5290,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1500660267
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1500660266}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4935575a1e4532c4ba79db42b8c44df6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 1
-  width: 10
 --- !u!212 &1500660268
 SpriteRenderer:
   m_ObjectHideFlags: 0

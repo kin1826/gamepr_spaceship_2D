@@ -17,6 +17,13 @@ public class GameManager : MonoBehaviour
     public GameObject gameWinPanel;
     public CanvasGroup winPanelCanvas;
 
+    //Background
+    public SpriteRenderer backgroundImage;
+    public SpriteRenderer backgroundImage2;
+    public float backgroundScrollSpeed = 2f;
+    private float backgroundWidth;
+    private const int BackgroundSortingOrder = -10;
+
     //Score
     public int score = 0;
     public bool isHighest = false;
@@ -66,6 +73,28 @@ public class GameManager : MonoBehaviour
         Debug.Log(markerParent);
         Debug.Log(shipData);
 
+
+        //Set background
+        // set sprite theo level
+        backgroundImage.sprite = levelData.background;
+        backgroundImage2.sprite = levelData.background;
+        backgroundImage.sortingOrder = BackgroundSortingOrder;
+        backgroundImage2.sortingOrder = BackgroundSortingOrder;
+        // 🔥 QUAN TRỌNG: scale giống nhau
+        Vector3 scale = new Vector3(3, 3, 1);
+        backgroundImage.transform.localScale = scale;
+        backgroundImage2.transform.localScale = scale;
+        
+        // lấy width (auto chuẩn theo sprite + scale)
+        // backgroundImage.transform.localScale = Vector3.one;
+        backgroundWidth = backgroundImage.bounds.size.x;
+        Debug.Log("Background width: " + backgroundWidth);
+        // đặt bg2 nối ngay sau bg1
+        backgroundImage.transform.position = Vector3.zero;
+        backgroundImage2.transform.position = new Vector3(backgroundWidth, 0, 0);
+        
+        
+
         maxProcess = levelData.maxProcess;
 
         SetUpSlider(maxProcess);
@@ -76,6 +105,29 @@ public class GameManager : MonoBehaviour
         {
             energySlider.maxValue = maxEnergy;
             energySlider.value = currentEnergy;
+        }
+    }
+
+    void Update()
+    {
+        MoveBackground();
+    }
+
+    void MoveBackground()
+    {
+        // move
+        backgroundImage.transform.Translate(Vector2.left * backgroundScrollSpeed * Time.deltaTime);
+        backgroundImage2.transform.Translate(Vector2.left * backgroundScrollSpeed * Time.deltaTime);
+
+        // loop
+        if (backgroundImage.transform.position.x <= -backgroundWidth)
+        {
+            backgroundImage.transform.position = backgroundImage2.transform.position + Vector3.right * backgroundWidth;
+        }
+
+        if (backgroundImage2.transform.position.x <= -backgroundWidth)
+        {
+            backgroundImage2.transform.position = backgroundImage.transform.position + Vector3.right * backgroundWidth;
         }
     }
     
