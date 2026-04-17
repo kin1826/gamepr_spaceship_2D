@@ -82,3 +82,9 @@ Trần Văn Bằng
 ## **📚 Notes**
 
 This project was developed for educational purposes as part of the Game Programming course and is not intended for commercial use.
+
+## **How to use**
+
+`git clone https://github.com/kin1826/gamepr_spaceship_2D.git`
+
+Then open project in github
