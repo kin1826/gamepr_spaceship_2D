@@ -41,9 +41,39 @@ Audio: Sound effects and background music
 
 ## **📷 Screenshots**
 
-![Gameplay 1](./images/gameplay1.png)
-![Gameplay 2](./images/gameplay2.png)
-![Gameplay 3](./images/gameplay3.png)
+<div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; justify-items: center; text-align: center;">
+
+  <div>
+    <img src="https://github.com/user-attachments/assets/cce2f29b-9e9f-4f10-bea7-71bc5b128de6" width="500"/>
+    <p>Game Menu</p>
+  </div>
+
+  <div>
+    <img src="https://github.com/user-attachments/assets/76ef4d6d-1737-4d4a-b47c-a14af9b49c27" width="500"/>
+    <p>Game Scene</p>
+  </div>
+
+  <div>
+    <img src="https://github.com/user-attachments/assets/0e73a059-618a-4598-acf7-be32a8037a01" width="500"/>
+    <p>Select Level</p>
+  </div>
+
+  <div>
+    <img src="https://github.com/user-attachments/assets/6339834d-f688-4d6b-a7fa-9b2d59213488" width="500"/>
+    <p>Select Ship</p>
+  </div>
+
+  <div>
+    <img src="https://github.com/user-attachments/assets/f7315323-5ddb-4cb4-a783-3ab76e9c0ee9" width="500"/>
+    <p>Victory Screen</p>
+  </div>
+
+  <div>
+    <img src="https://github.com/user-attachments/assets/142068c4-81b0-444f-a999-4dfc6bf47378" width="500"/>
+    <p>Game Over</p>
+  </div>
+
+</div>
 
 ## **🎥 Demo Video**
 
